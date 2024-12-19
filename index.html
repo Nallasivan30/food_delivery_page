@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff4757;
+            color: white;
+            padding: 20px 10%;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ff6b81;
+            padding: 10px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffdd59;
+        }
+
+        .hero {
+            background-image: url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .product-container {
+            padding: 20px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33.333% - 40px);
+            max-width: calc(33.333% - 40px);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .product-info p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .product-info .rating {
+            color: #ff4757;
+            margin-bottom: 10px;
+        }
+
+        .product-info .price {
+            font-weight: bold;
+            color: #2ed573;
+        }
+
+        footer {
+            background-color: #2f3542;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #ff6b81;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff4757;
+        }
+
+        .about-section {
+            padding: 20px 10%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 5%;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 0;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .product-container {
+                padding: 20px 5%;
+            }
+
+            .product {
+                flex: 1 1 calc(50% - 40px);
+                max-width: calc(50% - 40px);
+            }
+
+            .contact-form {
+                padding: 20px 5%;
+            }
+
+            .about-section {
+                padding: 20px 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .product-container {
+                padding: 20px 3%;
+            }
+
+            .product {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .contact-form {
+                padding: 20px 3%;
+            }
+
+            .about-section {
+                padding: 20px 3%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Foodie's Delight</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('menu')">Menu</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+        <a href="#" onclick="showSection('about')">About</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Delicious Food Delivered to Your Doorstep</h1>
+    </section>
+
+    <section id="menu" class="product-container hidden">
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Burger">
+            <div class="product-info">
+                <h3>Cheese Burger</h3>
+                <p>Juicy grilled burger with cheese and fresh veggies.</p>
+                <p class="rating">Rating: ★★★★☆</p>
+                <p class="price">Price: ₹199</p>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Pizza">
+            <div class="product-info">
+                <h3>Margherita Pizza</h3>
+                <p>Classic pizza topped with fresh mozzarella and basil.</p>
+                <p class="rating">Rating: ★★★★★</p>
+                <p class="price">Price: ₹299</p>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Pasta">
+            <div class="product-info">
+                <h3>Italian Pasta</h3>
+                <p>Creamy Alfredo pasta with Italian herbs.</p>
+                <p class="rating">Rating: ★★★★☆</p>
+                <p class="price">Price: ₹249</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-form hidden" style="padding: 20px 10%;">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section id="about" class="about-section hidden">
+        <h2>About Us</h2>
+        <p>Foodie's Delight is a premier online food delivery service offering a wide variety of mouth-watering dishes
+            made with fresh, high-quality ingredients. We are dedicated to providing the best dining experience at the
+            comfort of your home. Whether you're craving pizza, pasta, or burgers, we've got something to satisfy your
+            taste buds!</p>
+        <img src="https://via.placeholder.com/800x400" alt="Foodie Team" style="width: 100%; border-radius: 8px;">
+    </section>
+
+    <footer>
+        <p>© 2024 Foodie's Delight. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(function (sectionElement) {
+                sectionElement.classList.add('hidden');
+            });
+
+            // Show the clicked section
+            document.getElementById(section).classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
